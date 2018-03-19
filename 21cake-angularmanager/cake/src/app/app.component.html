@@ -1,0 +1,37 @@
+<div class="login" *ngIf='!loginsucess'>
+    <div class="loginentrance">
+        <p>后台系统登录</p>
+        <p><label>用户名：</label><input type="text" [(ngModel)]='loginname'/></p>
+        <p><label>密&nbsp;&nbsp;&nbsp;码：</label><input type="password" [(ngModel)]='loginpassword'/></p>
+        <p><label></label><input type="button" value="登录" (click)='login()'/></p>
+    </div>
+</div>
+
+<div id="cake" *ngIf='loginsucess'>
+    <div class="header">
+        <h1 (click)='getkeys()'>{{dictionary[language.lantype]['backstagemanagementsystem']}}</h1>
+        <select [(ngModel)]='language.lantype'>
+            <option value="en">en</option>
+            <option value="cn">cn</option>
+        </select>
+        <div class="my">
+            <i>{{loginname}}</i>
+            <input type="button" value="退出" (click)="quit()"/>
+        </div>
+    
+    </div>
+    <div class="main">
+        <ul class="left">
+
+            <li [class.selected]="num=='http://localhost:4200/products'" (click)='getnum()'><a routerLink="/products">{{dictionary[language.lantype]['cakemanagement']}}</a></li>
+            <li [class.selected]="num=='http://localhost:4200/userlist'" (click)='getnum()'><a routerLink="/userlist">{{dictionary[language.lantype]['usermanagement']}}</a></li>
+            <li [class.selected]="num=='http://localhost:4200/orderlist'" (click)='getnum()'><a routerLink="/orderlist">{{dictionary[language.lantype]['ordermanagement']}}</a></li>
+            <li [class.selected]="num=='http://localhost:4200/carlist'" (click)='getnum()'><a routerLink="/carlist">{{dictionary[language.lantype]['carmanagement']}}</a></li>
+            <li [class.selected]="num=='http://localhost:4200/search'" (click)='getnum()'><a routerLink="/search">{{dictionary[language.lantype]['search']}}</a></li>
+        </ul>
+        <div class="right">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

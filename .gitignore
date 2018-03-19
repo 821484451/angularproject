@@ -1,0 +1,7 @@
+/21cake-angularwebapp/api/node_modules/
+/21cake-angularwebapp/cake/node_modules/
+/21cake-angularmanager/api/node_modules/
+/21cake-angularmanager/angular-3-master/node_modules/
+*.zip
+*.rar
+*.7z
